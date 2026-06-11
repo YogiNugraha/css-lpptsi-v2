@@ -1,0 +1,1829 @@
+/*
+ * ==========================================================================
+ *   CUSTOM STYLES — PMB AdminLTE v3 Theme Override
+ *   Clean, variable-driven design system over Bootstrap 4 / AdminLTE 3
+ * ==========================================================================
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ==========================================================================
+   1. DESIGN TOKENS (CSS Custom Properties)
+   ========================================================================== */
+
+:root {
+  /* --- Font --- */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* --- Spectrum --- */
+  --black: #010618;
+  --white: #ffffff;
+  --white-1: rgba(255, 255, 255, 1);
+  --black-08: rgba(0, 0, 0, 0.08);
+  --black-012: rgba(0, 0, 0, 0.12);
+
+  /* --- Neutral — Slate --- */
+  --slate-50: #f8fafc;
+  --slate-100: #f0f5f9;
+  --slate-200: #e1e8f1;
+  --slate-300: #c9d5e2;
+  --slate-400: #91a3ba;
+  --slate-500: #60748d;
+  --slate-600: #43566b;
+  --slate-700: #2f4257;
+  --slate-800: #1b293e;
+  --slate-900: #0d172b;
+  --slate-950: #010618;
+
+  /* --- Primary — Sky --- */
+  --sky-50: #eef9ff;
+  --sky-100: #dcf3ff;
+  --sky-200: #aee8ff;
+  --sky-300: #5bd6ff;
+  --sky-400: #00c0ff;
+  --sky-500: #00a7ef;
+  --sky-600: #0087cc;
+  --sky-700: #006ba7;
+  --sky-800: #005b89;
+  --sky-900: #004b71;
+  --sky-950: #00304b;
+
+  /* --- Accent — Blue --- */
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-300: #93c5fd;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --blue-800: #1e40af;
+  --blue-900: #1e3a8a;
+  --blue-1000: #162456;
+
+  /* --- Secondary — Amber --- */
+  --amber-50: #fffbea;
+  --amber-100: #fff3c2;
+  --amber-200: #ffe57b;
+  --amber-300: #ffd217;
+  --amber-400: #ffbc00;
+  --amber-500: #ff9900;
+  --amber-600: #e87000;
+  --amber-700: #c24c00;
+  --amber-800: #9e3900;
+  --amber-900: #823000;
+  --amber-950: #4b1800;
+
+  /* --- Semantic — Success --- */
+  --success-50: #ecfef3;
+  --success-100: #d4fde5;
+  --success-200: #aaf9cd;
+  --success-300: #56f2a6;
+  --success-400: #00e275;
+  --success-500: #00c94e;
+  --success-600: #00a63d;
+  --success-700: #008234;
+  --success-800: #00672e;
+  --success-900: #005529;
+  --success-950: #002f13;
+
+  /* --- Semantic — Error --- */
+  --error-50: #fff1f2;
+  --error-100: #ffe1e0;
+  --error-200: #ffc7c9;
+  --error-300: #ffa0a3;
+  --error-400: #ff666c;
+  --error-500: #ff2b3a;
+  --error-600: #f0000f;
+  --error-700: #ca0005;
+  --error-800: #a7000f;
+  --error-900: #8b0a18;
+  --error-950: #4c0206;
+
+  /* --- Semantic — Warning --- */
+  --warning-50: #fff7ec;
+  --warning-100: #ffecd2;
+  --warning-200: #ffd6a3;
+  --warning-300: #ffb666;
+  --warning-400: #ff8b16;
+  --warning-500: #ff6800;
+  --warning-600: #fd4900;
+  --warning-700: #d33200;
+  --warning-800: #a72900;
+  --warning-900: #872502;
+  --warning-950: #481002;
+
+  /* --- Semantic — Info --- */
+  --info-50: #edf6ff;
+  --info-100: #d8eaff;
+  --info-200: #b8dcff;
+  --info-300: #83c7ff;
+  --info-400: #44a7ff;
+  --info-500: #1084fe;
+  --info-600: #0065f4;
+  --info-700: #004fe0;
+  --info-800: #0c41b5;
+  --info-900: #153b8f;
+  --info-950: #132557;
+
+  /* --- Extra Accent Colors --- */
+  --indigo-500: #6366f1;
+  --indigo-600: #4f46e5;
+  --indigo-700: #4338ca;
+  --violet-500: #8b5cf6;
+  --violet-600: #7c3aed;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --rose-400: #fb7185;
+  --rose-500: #f43f5e;
+  --rose-600: #e11d48;
+
+  /* =======================================================================
+     BOOTSTRAP / ADMINLTE SEMANTIC MAPPINGS
+     ======================================================================= */
+  --primary: var(--sky-500);
+  --primary-hover: var(--sky-600);
+  --primary-light: var(--sky-100);
+  --primary-dark: var(--sky-700);
+
+  --secondary: var(--slate-500);
+  --secondary-hover: var(--slate-600);
+
+  --success: var(--success-500);
+  --success-hover: var(--success-600);
+
+  --info: var(--info-500);
+  --info-hover: var(--info-600);
+
+  --warning: var(--warning-500);
+  --warning-hover: var(--warning-600);
+
+  --danger: var(--error-500);
+  --danger-hover: var(--error-600);
+
+  --light: var(--slate-100);
+  --dark: var(--slate-800);
+
+  /* =======================================================================
+     SHADOWS
+     ======================================================================= */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md:
+    0 4px 8px rgba(96, 97, 112, 0.16), 0 0 2px rgba(40, 41, 61, 0.04);
+  --shadow-lg:
+    0 8px 16px rgba(96, 97, 112, 0.16), 0 2px 4px rgba(40, 41, 61, 0.04);
+  --shadow-xl:
+    0 16px 24px rgba(96, 97, 112, 0.16), 0 2px 8px rgba(40, 41, 61, 0.04);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+  /* =======================================================================
+     BORDER RADIUS
+     ======================================================================= */
+  --rounded-sm: 0.25rem;
+  --rounded: 0.375rem;
+  --rounded-md: 0.5rem;
+  --rounded-lg: 0.75rem;
+  --rounded-xl: 1rem;
+  --rounded-full: 9999px;
+
+  /* =======================================================================
+     TRANSITIONS
+     ======================================================================= */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESETS & TYPOGRAPHY
+   ========================================================================== */
+
+body {
+  font-family: var(--font-sans) !important;
+  background-color: var(--slate-50);
+  color: var(--slate-700);
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: var(--slate-800);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.content-wrapper {
+  background-color: var(--slate-50) !important;
+}
+
+/* ==========================================================================
+   3. TEXT UTILITIES
+   ========================================================================== */
+
+.text-primary {
+  color: var(--primary) !important;
+}
+.text-secondary {
+  color: var(--secondary) !important;
+}
+.text-success {
+  color: var(--success) !important;
+}
+.text-info {
+  color: var(--info) !important;
+}
+.text-warning {
+  color: var(--warning) !important;
+}
+.text-danger {
+  color: var(--danger) !important;
+}
+.text-dark {
+  color: var(--dark) !important;
+}
+.text-light {
+  color: var(--slate-100) !important;
+}
+.text-muted {
+  color: var(--slate-400) !important;
+}
+
+/* ==========================================================================
+   4. BACKGROUND UTILITIES
+   ========================================================================== */
+
+/* --- Solid Backgrounds --- */
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+}
+.bg-secondary {
+  background-color: var(--secondary) !important;
+  color: var(--white) !important;
+}
+.bg-success {
+  background-color: var(--success) !important;
+  color: var(--white) !important;
+}
+.bg-info {
+  background-color: var(--info) !important;
+  color: var(--white) !important;
+}
+.bg-warning {
+  background-color: var(--warning) !important;
+  color: var(--white) !important;
+}
+.bg-danger {
+  background-color: var(--danger) !important;
+  color: var(--white) !important;
+}
+.bg-dark {
+  background-color: var(--slate-800) !important;
+  color: var(--white) !important;
+}
+.bg-light {
+  background-color: var(--slate-100) !important;
+  color: var(--slate-800) !important;
+}
+.bg-white {
+  background-color: var(--white) !important;
+  color: var(--slate-800) !important;
+}
+
+/* --- Extra Accent Backgrounds --- */
+.bg-navy {
+  background-color: var(--blue-1000) !important;
+  color: var(--white) !important;
+}
+.bg-indigo {
+  background-color: var(--indigo-600) !important;
+  color: var(--white) !important;
+}
+.bg-teal {
+  background-color: var(--teal-500) !important;
+  color: var(--white) !important;
+}
+
+/* --- Gradient Backgrounds (themed, not killed) --- */
+.bg-gradient-primary {
+  background: linear-gradient(
+    135deg,
+    var(--sky-500),
+    var(--sky-700)
+  ) !important;
+  color: var(--white) !important;
+}
+.bg-gradient-secondary {
+  background: linear-gradient(
+    135deg,
+    var(--slate-500),
+    var(--slate-700)
+  ) !important;
+  color: var(--white) !important;
+}
+.bg-gradient-success {
+  background: linear-gradient(
+    135deg,
+    var(--success-500),
+    var(--success-700)
+  ) !important;
+  color: var(--white) !important;
+}
+.bg-gradient-info {
+  background: linear-gradient(
+    135deg,
+    var(--info-500),
+    var(--info-700)
+  ) !important;
+  color: var(--white) !important;
+}
+.bg-gradient-warning {
+  background: linear-gradient(
+    135deg,
+    var(--warning-500),
+    var(--warning-700)
+  ) !important;
+  color: var(--white) !important;
+}
+.bg-gradient-danger {
+  background: linear-gradient(
+    135deg,
+    var(--error-500),
+    var(--error-700)
+  ) !important;
+  color: var(--white) !important;
+}
+.bg-gradient-dark {
+  background: linear-gradient(
+    135deg,
+    var(--slate-800),
+    var(--slate-950)
+  ) !important;
+  color: var(--white) !important;
+}
+
+/* --- Legacy color compat --- */
+.bg-orange {
+  background-color: var(--amber-500) !important;
+  color: var(--white) !important;
+}
+.bg-yellow {
+  background-color: var(--amber-300) !important;
+  color: var(--slate-800) !important;
+}
+.bg-lime {
+  background-color: var(--success-400) !important;
+  color: var(--slate-800) !important;
+}
+
+/* ==========================================================================
+   5. CARDS
+   ========================================================================== */
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+  transition:
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--slate-300);
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid var(--slate-100);
+  padding: 1rem 1.25rem;
+  border-top-left-radius: var(--rounded-lg) !important;
+  border-top-right-radius: var(--rounded-lg) !important;
+}
+
+.card-footer {
+  background-color: var(--slate-50);
+  border-top: 1px solid var(--slate-100);
+  border-bottom-left-radius: var(--rounded-lg) !important;
+  border-bottom-right-radius: var(--rounded-lg) !important;
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--slate-800);
+  font-size: 1.125rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+  color: var(--slate-600);
+}
+
+/* Outline Cards */
+.card.card-outline {
+  border-top-width: 3px;
+}
+.card-primary.card-outline {
+  border-top-color: var(--primary);
+}
+.card-success.card-outline {
+  border-top-color: var(--success);
+}
+.card-warning.card-outline {
+  border-top-color: var(--warning);
+}
+.card-danger.card-outline {
+  border-top-color: var(--danger);
+}
+.card-info.card-outline {
+  border-top-color: var(--info);
+}
+.card-secondary.card-outline {
+  border-top-color: var(--secondary);
+}
+
+/* Solid Card Variants (Header Colored) */
+.card-primary:not(.card-outline) > .card-header {
+  background-color: var(--primary) !important;
+  color: var(--white);
+}
+.card-secondary:not(.card-outline) > .card-header {
+  background-color: var(--secondary) !important;
+  color: var(--white);
+}
+.card-success:not(.card-outline) > .card-header {
+  background-color: var(--success) !important;
+  color: var(--white);
+}
+.card-info:not(.card-outline) > .card-header {
+  background-color: var(--info) !important;
+  color: var(--white);
+}
+.card-danger:not(.card-outline) > .card-header {
+  background-color: var(--danger) !important;
+  color: var(--white);
+}
+.card-warning:not(.card-outline) > .card-header {
+  background-color: var(--warning) !important;
+  color: var(--white);
+}
+
+.card-primary:not(.card-outline) > .card-header .card-title,
+.card-secondary:not(.card-outline) > .card-header .card-title,
+.card-success:not(.card-outline) > .card-header .card-title,
+.card-info:not(.card-outline) > .card-header .card-title,
+.card-danger:not(.card-outline) > .card-header .card-title,
+.card-warning:not(.card-outline) > .card-header .card-title {
+  color: var(--white) !important;
+}
+
+/* ==========================================================================
+   6. BUTTONS
+   ========================================================================== */
+
+.btn {
+  font-weight: 500;
+  border-radius: var(--rounded-md);
+  padding: 0.5rem 1rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-xs);
+  border: 1px solid transparent;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.2rem;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Solid Variants */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--white);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  color: var(--white);
+}
+
+.btn-secondary,
+.btn-default {
+  background-color: var(--white) !important;
+  border-color: var(--slate-300) !important;
+  color: var(--slate-700) !important;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-default:hover,
+.btn-default:focus {
+  background-color: var(--slate-50) !important;
+  border-color: var(--slate-400) !important;
+  color: var(--slate-900) !important;
+}
+
+.btn-success {
+  background-color: var(--success) !important;
+  border-color: var(--success) !important;
+  color: var(--white);
+}
+.btn-success:hover,
+.btn-success:focus {
+  background-color: var(--success-hover) !important;
+  border-color: var(--success-hover) !important;
+  color: var(--white);
+}
+
+.btn-danger {
+  background-color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  color: var(--white);
+}
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: var(--danger-hover) !important;
+  border-color: var(--danger-hover) !important;
+  color: var(--white);
+}
+
+.btn-warning {
+  background-color: var(--warning) !important;
+  border-color: var(--warning) !important;
+  color: var(--white);
+}
+.btn-warning:hover,
+.btn-warning:focus {
+  background-color: var(--warning-hover) !important;
+  border-color: var(--warning-hover) !important;
+  color: var(--white);
+}
+
+.btn-info {
+  background-color: var(--info) !important;
+  border-color: var(--info) !important;
+  color: var(--white);
+}
+.btn-info:hover,
+.btn-info:focus {
+  background-color: var(--info-hover) !important;
+  border-color: var(--info-hover) !important;
+  color: var(--white);
+}
+
+/* Outline Variants */
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: transparent;
+}
+.btn-outline-primary:hover {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+  border-color: var(--primary) !important;
+}
+
+.btn-outline-success {
+  color: var(--success);
+  border-color: var(--success);
+  background: transparent;
+}
+.btn-outline-success:hover {
+  background-color: var(--success) !important;
+  color: var(--white) !important;
+  border-color: var(--success) !important;
+}
+
+.btn-outline-danger {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: transparent;
+}
+.btn-outline-danger:hover {
+  background-color: var(--danger) !important;
+  color: var(--white) !important;
+  border-color: var(--danger) !important;
+}
+
+.btn-outline-warning {
+  color: var(--warning);
+  border-color: var(--warning);
+  background: transparent;
+}
+.btn-outline-warning:hover {
+  background-color: var(--warning) !important;
+  color: var(--white) !important;
+  border-color: var(--warning) !important;
+}
+
+.btn-outline-info {
+  color: var(--info);
+  border-color: var(--info);
+  background: transparent;
+}
+.btn-outline-info:hover {
+  background-color: var(--info) !important;
+  color: var(--white) !important;
+  border-color: var(--info) !important;
+}
+
+.btn-outline-secondary {
+  color: var(--slate-600);
+  border-color: var(--slate-300);
+  background: transparent;
+}
+.btn-outline-secondary:hover {
+  background-color: var(--slate-100) !important;
+  color: var(--slate-900);
+  border-color: var(--slate-400);
+}
+
+/* ==========================================================================
+   7. FORMS
+   ========================================================================== */
+
+.form-control {
+  border: 1px solid var(--slate-300);
+  border-radius: var(--rounded-md);
+  padding: 0.6rem 1rem;
+  color: var(--slate-700);
+  background-color: var(--white);
+  transition:
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+  height: calc(1.5em + 1.2rem + 2px);
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--sky-100) !important;
+  background-color: var(--white);
+  outline: 0;
+}
+
+label {
+  font-weight: 500;
+  color: var(--slate-700);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Custom Checkbox/Radio */
+.custom-control-label::before {
+  background-color: var(--white);
+  border: 1px solid var(--slate-300);
+  box-shadow: var(--shadow-xs);
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--sky-100);
+}
+
+/* Select */
+.custom-select,
+select.form-control {
+  border: 1px solid var(--slate-300);
+  border-radius: var(--rounded-md);
+  color: var(--slate-700);
+}
+
+.custom-select:focus,
+select.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--sky-100) !important;
+}
+
+/* ==========================================================================
+   8. SIDEBAR & NAV
+   ========================================================================== */
+
+.main-sidebar {
+  background: var(--white) !important;
+  box-shadow: var(--shadow-lg);
+  border-right: 1px solid var(--slate-200);
+}
+
+.brand-link {
+  border-bottom: 1px solid var(--slate-100) !important;
+  background-color: var(--white) !important;
+  color: var(--slate-800) !important;
+}
+
+.brand-text {
+  color: var(--slate-800) !important;
+  font-weight: 600;
+}
+
+.nav-sidebar .nav-item .nav-link {
+  color: var(--slate-600);
+  padding: 0.75rem 1rem;
+  border-radius: var(--rounded-md);
+  margin-bottom: 0.25rem;
+  transition: all var(--transition-fast);
+}
+
+.nav-sidebar .nav-item .nav-link:hover {
+  background-color: var(--slate-50);
+  color: var(--primary);
+}
+
+.nav-sidebar .nav-item .nav-link.active {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-sidebar .nav-item .nav-link.active .nav-icon {
+  color: var(--white) !important;
+}
+
+.nav-sidebar .nav-header {
+  color: var(--slate-400);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 1rem 1rem 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* Treeview (submenu) */
+.nav-sidebar .nav-treeview > .nav-item > .nav-link {
+  padding-left: 2rem;
+}
+
+.nav-sidebar .nav-treeview > .nav-item > .nav-link.active {
+  background-color: var(--sky-50) !important;
+  color: var(--primary) !important;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   9. NAVBAR
+   ========================================================================== */
+
+.main-header {
+  border-bottom: 1px solid var(--slate-200);
+  background-color: var(--white) !important;
+  box-shadow: var(--shadow-xs);
+}
+
+.main-header .nav-link {
+  color: var(--slate-600) !important;
+}
+
+.main-header .nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.navbar-light {
+  background-color: var(--white) !important;
+  border-bottom: 1px solid var(--slate-200) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--primary) !important;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: var(--sky-400) !important;
+}
+
+.navbar-dark {
+  background-color: var(--slate-800) !important;
+  border-bottom: 1px solid var(--slate-700) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--slate-300) !important;
+}
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+  color: var(--white) !important;
+}
+
+/* ==========================================================================
+   10. TABLES
+   ========================================================================== */
+
+.table thead th {
+  border-bottom: 2px solid var(--slate-200);
+  color: var(--slate-600);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--slate-50);
+}
+
+.table td,
+.table th {
+  border-top: 1px solid var(--slate-100);
+  vertical-align: middle;
+  font-size: 0.875rem;
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--sky-50);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--slate-50);
+}
+
+/* ==========================================================================
+   11. MODALS (New)
+   ========================================================================== */
+
+.modal-content {
+  border-radius: var(--rounded-xl);
+  border: none;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--slate-200);
+  padding: 1.25rem 1.5rem;
+}
+
+.modal-header .modal-title {
+  font-weight: 600;
+  color: var(--slate-800);
+  font-size: 1.125rem;
+}
+
+.modal-header .close {
+  color: var(--slate-400);
+  opacity: 1;
+  text-shadow: none;
+  transition: color var(--transition-fast);
+}
+
+.modal-header .close:hover {
+  color: var(--danger);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  color: var(--slate-600);
+}
+
+.modal-footer {
+  background-color: var(--slate-50);
+  border-top: 1px solid var(--slate-200);
+  padding: 1rem 1.5rem;
+}
+
+.modal-backdrop.show {
+  opacity: 0.4;
+}
+
+/* ==========================================================================
+   12. TIMELINE (AdminLTE)
+   ========================================================================== */
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline::before {
+  background: var(--slate-200);
+}
+
+.timeline > div > .timeline-item {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-xs);
+  margin-left: 60px;
+  margin-right: 0;
+  padding: 0;
+}
+
+.timeline > div > .timeline-item > .timeline-header {
+  border-bottom: 1px solid var(--slate-100);
+  color: var(--slate-700);
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--slate-50);
+  border-top-left-radius: var(--rounded-lg);
+  border-top-right-radius: var(--rounded-lg);
+}
+
+.timeline > div > .timeline-item > .timeline-header a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.timeline > div > .timeline-item > .timeline-body {
+  padding: 1rem 1.25rem;
+  color: var(--slate-600);
+  font-size: 0.9rem;
+}
+
+.timeline > div > .timeline-item > .timeline-footer {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--slate-50);
+  border-top: 1px solid var(--slate-100);
+  border-bottom-left-radius: var(--rounded-lg);
+  border-bottom-right-radius: var(--rounded-lg);
+}
+
+/* Timeline step indicator dot */
+.timeline > div > .fas,
+.timeline > div > .far {
+  border-radius: var(--rounded-full);
+  font-size: 0.85rem;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   13. INFO BOX (AdminLTE)
+   ========================================================================== */
+
+.info-box {
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--slate-200);
+  transition: box-shadow var(--transition-normal);
+  min-height: auto;
+}
+
+.info-box:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.info-box .info-box-icon {
+  border-radius: var(--rounded-lg) 0 0 var(--rounded-lg);
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.info-box .info-box-text {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+}
+
+.info-box .info-box-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Colored info-box variants — ensure text stays white */
+.info-box.bg-primary .info-box-text,
+.info-box.bg-primary .info-box-number,
+.info-box.bg-success .info-box-text,
+.info-box.bg-success .info-box-number,
+.info-box.bg-info .info-box-text,
+.info-box.bg-info .info-box-number,
+.info-box.bg-warning .info-box-text,
+.info-box.bg-warning .info-box-number,
+.info-box.bg-danger .info-box-text,
+.info-box.bg-danger .info-box-number {
+  color: var(--white) !important;
+}
+
+/* ==========================================================================
+   14. SMALL BOX (AdminLTE)
+   ========================================================================== */
+
+.small-box {
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  border: none;
+}
+
+.small-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.small-box .inner {
+  padding: 1.5rem;
+}
+
+.small-box h3 {
+  color: var(--white) !important;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.small-box p {
+  font-size: 1rem;
+  margin-bottom: 0;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.small-box .icon {
+  color: rgba(0, 0, 0, 0.1);
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 4rem;
+  transition: all 0.3s;
+}
+
+.small-box-footer {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.small-box-footer:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: var(--white) !important;
+}
+
+.bg-warning,
+.bg-warning > a {
+  color: var(--white) !important;
+}
+
+/* ==========================================================================
+   15. BADGES
+   ========================================================================== */
+
+.badge {
+  padding: 0.35em 0.65em;
+  font-weight: 600;
+  border-radius: var(--rounded-full);
+  font-size: 0.75em;
+  letter-spacing: 0.025em;
+  margin-bottom: 0.3rem;
+}
+
+.badge-primary {
+  background-color: var(--sky-100);
+  color: var(--sky-700);
+}
+.badge-success {
+  background-color: var(--success-100);
+  color: var(--success-700);
+}
+.badge-warning {
+  background-color: var(--warning-100);
+  color: var(--warning-700);
+}
+.badge-danger {
+  background-color: var(--error-100);
+  color: var(--error-700);
+}
+.badge-info {
+  background-color: var(--info-100);
+  color: var(--info-700);
+}
+.badge-secondary {
+  background-color: var(--slate-100);
+  color: var(--slate-600);
+}
+.badge-dark {
+  background-color: var(--slate-800);
+  color: var(--white);
+}
+.badge-light {
+  background-color: var(--white);
+  color: var(--slate-700);
+  border: 1px solid var(--slate-200);
+}
+
+/* ==========================================================================
+   16. ALERTS
+   ========================================================================== */
+
+.alert {
+  border: none;
+  border-radius: var(--rounded-md);
+  box-shadow: var(--shadow-xs);
+  border-left: 4px solid transparent;
+}
+
+.alert-success {
+  background-color: var(--success-50);
+  border-left-color: var(--success);
+  color: var(--success-800);
+}
+.alert-info {
+  background-color: var(--info-50);
+  border-left-color: var(--info);
+  color: var(--info-800);
+}
+.alert-warning {
+  background-color: var(--warning-50);
+  border-left-color: var(--warning);
+  color: var(--warning-800);
+}
+.alert-danger {
+  background-color: var(--error-50);
+  border-left-color: var(--danger);
+  color: var(--error-800);
+}
+
+/* ==========================================================================
+   17. CALLOUTS
+   ========================================================================== */
+
+.callout {
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow-xs);
+  border-left-width: 4px;
+}
+
+.callout.callout-info {
+  border-left-color: var(--info);
+  background: var(--info-50);
+}
+.callout.callout-danger {
+  border-left-color: var(--danger);
+  background: var(--error-50);
+}
+.callout.callout-success {
+  border-left-color: var(--success);
+  background: var(--success-50);
+}
+.callout.callout-warning {
+  border-left-color: var(--warning);
+  background: var(--warning-50);
+}
+
+/* ==========================================================================
+   18. DROPDOWNS
+   ========================================================================== */
+
+.dropdown-menu {
+  border: 1px solid var(--slate-200);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--rounded-md);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem !important;
+}
+
+.dropdown-item {
+  color: var(--slate-600);
+  padding: 0.5rem 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--slate-50);
+  color: var(--primary);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.dropdown-divider {
+  border-top-color: var(--slate-100);
+}
+
+/* ==========================================================================
+   19. PAGINATION
+   ========================================================================== */
+
+.page-link {
+  border: 1px solid var(--slate-200);
+  color: var(--slate-600);
+  margin: 0 2px;
+  border-radius: var(--rounded);
+  transition: all var(--transition-fast);
+}
+
+.page-link:hover {
+  background-color: var(--slate-50);
+  color: var(--primary);
+  border-color: var(--slate-300);
+}
+
+.page-item.active .page-link {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-xs);
+  color: var(--white);
+}
+
+.page-item.disabled .page-link {
+  color: var(--slate-400);
+  border-color: var(--slate-100);
+}
+
+/* ==========================================================================
+   20. NAV TABS & PILLS
+   ========================================================================== */
+
+.nav-tabs {
+  border-bottom: 2px solid var(--slate-200);
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  color: var(--slate-500);
+  font-weight: 500;
+  margin-bottom: -2px;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--slate-700);
+  border-color: var(--slate-300);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  background: transparent;
+}
+
+.nav-pills .nav-link {
+  border-radius: var(--rounded-md);
+  color: var(--slate-600);
+  transition: all var(--transition-fast);
+}
+
+.nav-pills .nav-link:hover {
+  background-color: var(--slate-50);
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   21. PROGRESS BARS
+   ========================================================================== */
+
+.progress {
+  background-color: var(--slate-100);
+  border-radius: var(--rounded-full);
+  box-shadow: var(--shadow-inner);
+  height: 0.75rem;
+}
+
+.progress-bar {
+  border-radius: var(--rounded-full);
+}
+
+/* ==========================================================================
+   22. LIST GROUPS
+   ========================================================================== */
+
+.list-group-item {
+  border-color: var(--slate-100);
+  color: var(--slate-700);
+  padding: 0.85rem 1.25rem;
+  transition: background-color var(--transition-fast);
+}
+
+.list-group-item:hover {
+  background-color: var(--slate-50);
+}
+
+.list-group-item.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   23. BREADCRUMBS
+   ========================================================================== */
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+  color: var(--primary);
+}
+
+.breadcrumb-item.active {
+  color: var(--slate-500);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--slate-400);
+}
+
+/* ==========================================================================
+   24. TOOLTIPS & POPOVERS
+   ========================================================================== */
+
+.tooltip-inner {
+  background-color: var(--slate-900);
+  border-radius: var(--rounded);
+  font-size: 0.8rem;
+  padding: 0.4rem 0.75rem;
+  box-shadow: var(--shadow-md);
+}
+
+.bs-tooltip-top .arrow::before {
+  border-top-color: var(--slate-900);
+}
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: var(--slate-900);
+}
+.bs-tooltip-left .arrow::before {
+  border-left-color: var(--slate-900);
+}
+.bs-tooltip-right .arrow::before {
+  border-right-color: var(--slate-900);
+}
+
+.popover {
+  border: 1px solid var(--slate-200);
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.popover-header {
+  background-color: var(--slate-50);
+  border-bottom-color: var(--slate-200);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   25. UTILITIES (Elevation, Scrollbar)
+   ========================================================================== */
+
+.elevation-1 {
+  box-shadow: var(--shadow-xs) !important;
+}
+.elevation-2 {
+  box-shadow: var(--shadow-sm) !important;
+}
+.elevation-3 {
+  box-shadow: var(--shadow-md) !important;
+}
+.elevation-4 {
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Custom scrollbar (webkit) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--slate-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate-300);
+  border-radius: var(--rounded-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-400);
+}
+
+/* ==========================================================================
+   26. DATATABLES OVERRIDES
+   ========================================================================== */
+
+.dataTables_wrapper .table th,
+.dataTables_wrapper .table td {
+  white-space: nowrap !important;
+}
+
+.dataTables_scrollHead {
+  background-color: var(--slate-200);
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+  color: var(--slate-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border: 1px solid var(--slate-300);
+  border-radius: var(--rounded-md);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+  border-color: var(--primary);
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--sky-100);
+}
+
+.dataTables_scroll {
+  border: 1px solid var(--slate-200);
+  border-radius: var(--rounded-md);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: var(--white);
+}
+
+.dataTables_scrollHeadInner .table,
+.dataTables_scrollBody .table {
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+
+.dataTables_scrollHeadInner .table thead th {
+  background-color: var(--slate-200) !important;
+  color: var(--sky-800) !important;
+  border-bottom: 2px solid var(--slate-300) !important;
+  border-top: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 0 !important;
+}
+
+.dataTables_wrapper .table {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* DataTable buttons ungrouping */
+.dt-buttons .btn-group {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.dt-buttons .btn {
+  border-radius: var(--rounded-md) !important;
+  margin-right: 0.25rem;
+}
+
+/* ==========================================================================
+   27. SELECT2 OVERRIDES
+   ========================================================================== */
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid var(--slate-300);
+  border-radius: var(--rounded-md);
+  height: calc(1.5em + 1.2rem + 2px);
+  background-color: var(--white);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single,
+.select2-container--default.select2-container--focus
+  .select2-selection--multiple,
+.select2-container--default.select2-container--open .select2-selection--single,
+.select2-container--default.select2-container--open
+  .select2-selection--multiple {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--sky-100) !important;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: var(--slate-700);
+  line-height: calc(1.5em + 1.2rem);
+  padding-left: 1rem;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: calc(1.5em + 1.2rem);
+  right: 0.5rem;
+}
+
+.select2-dropdown {
+  border: 1px solid var(--slate-200);
+  border-radius: var(--rounded-md);
+  box-shadow: var(--shadow-md);
+}
+
+.select2-search--dropdown .select2-search__field {
+  border: 1px solid var(--slate-300);
+  border-radius: var(--rounded-sm);
+  padding: 0.4rem 0.6rem;
+}
+
+.select2-search--dropdown .select2-search__field:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.select2-container--default .select2-results__option {
+  padding: 0.5rem 1rem;
+  color: var(--slate-600);
+  transition: background-color var(--transition-fast);
+}
+
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected],
+.select2-container--default
+  .select2-results__option--highlighted[aria-selected]:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  background-color: var(--sky-50);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Multiple select tags */
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice {
+  background-color: var(--sky-50);
+  border: 1px solid var(--sky-200);
+  color: var(--primary);
+  border-radius: var(--rounded-sm);
+  padding: 0.1rem 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice__remove {
+  color: var(--primary);
+  margin-right: 0.3rem;
+}
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice__remove:hover {
+  color: var(--danger);
+}
+
+/* ==========================================================================
+   28. LOGIN & REGISTER PAGES (Auth & PMB)
+   ========================================================================== */
+
+body.login-page,
+body.register-page {
+  background: linear-gradient(135deg, var(--sky-50) 0%, var(--slate-100) 100%);
+  position: relative;
+  min-height: 100vh;
+}
+
+body.login-page::before,
+body.register-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(0, 167, 239, 0.04),
+      transparent 25%
+    ),
+    radial-gradient(circle at 85% 30%, rgba(0, 167, 239, 0.04), transparent 25%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.login-box,
+.register-box {
+  position: relative;
+  z-index: 1;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.login-logo,
+.register-logo {
+  margin-bottom: 1.5rem;
+}
+
+.login-logo a,
+.register-logo a {
+  color: var(--slate-800);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-shadow: none;
+}
+
+.login-logo a b,
+.register-logo a b {
+  color: var(--primary);
+}
+
+.login-box .card,
+.register-box .card {
+  border: none !important;
+  border-radius: var(--rounded-xl) !important;
+  box-shadow: var(--shadow-xl) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.login-card-body,
+.register-card-body {
+  background: transparent;
+  padding: 2.5rem 2rem;
+  color: var(--slate-600);
+}
+
+.login-box-msg,
+.register-box-msg {
+  color: var(--slate-500);
+  font-size: 0.95rem;
+  padding: 0 0 1.5rem 0;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   29. INPUT GROUPS (Seamless Icons)
+   ========================================================================== */
+
+.input-group {
+  position: relative;
+  border-radius: var(--rounded-md);
+  transition: box-shadow var(--transition-fast);
+}
+
+.input-group:focus-within {
+  box-shadow: 0 0 0 3px var(--sky-100) !important;
+}
+
+.input-group .form-control {
+  box-shadow: none !important;
+}
+
+.input-group:focus-within .form-control,
+.input-group:focus-within .input-group-text {
+  border-color: var(--primary) !important;
+  z-index: 3;
+}
+
+.input-group-text {
+  background-color: var(--slate-50);
+  border: 1px solid var(--slate-300);
+  color: var(--slate-400);
+  transition: all var(--transition-fast);
+  /* Let flexbox stretch height automatically to match form-control */
+}
+
+.input-group:focus-within .input-group-text {
+  color: var(--primary);
+}
+
+/* Left Icon */
+.input-group-prepend {
+  margin-right: 0 !important;
+}
+.input-group-prepend .input-group-text {
+  border-top-left-radius: var(--rounded-md) !important;
+  border-bottom-left-radius: var(--rounded-md) !important;
+  border-right: none !important;
+  padding-right: 0.5rem;
+}
+.input-group > .form-control:not(:first-child) {
+  border-left: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Right Icon */
+.input-group-append {
+  margin-left: 0 !important;
+}
+.input-group-append .input-group-text {
+  border-top-right-radius: var(--rounded-md) !important;
+  border-bottom-right-radius: var(--rounded-md) !important;
+  border-left: none !important;
+  padding-left: 0.5rem;
+}
+.input-group > .form-control:not(:last-child) {
+  border-right: none !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Auth Cards Glass Override */
+.login-card-body .input-group-text,
+.register-card-body .input-group-text {
+  background-color: transparent !important;
+}
+
+/* ==========================================================================
+   30. BUTTON ICONS & ANIMATIONS
+   ========================================================================== */
+
+.btn {
+  /* Make sure text and icons align perfectly on same baseline */
+  vertical-align: middle;
+}
+
+.btn i {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Slide Right */
+.btn:hover i.fa-arrow-right,
+.btn:hover i.fa-sign-in-alt,
+.btn:hover i.fa-chevron-right,
+.btn:hover i.fa-long-arrow-alt-right {
+  transform: translateX(5px);
+}
+
+/* Slide Left */
+.btn:hover i.fa-arrow-left,
+.btn:hover i.fa-chevron-left,
+.btn:hover i.fa-long-arrow-alt-left {
+  transform: translateX(-5px);
+}
+
+/* Slide Up */
+.btn:hover i.fa-arrow-up,
+.btn:hover i.fa-upload {
+  transform: translateY(-3px);
+}
+
+/* Slide Down */
+.btn:hover i.fa-arrow-down,
+.btn:hover i.fa-download {
+  transform: translateY(3px);
+}
+
+/* Enhance Primary Button Typography for Auth */
+.btn-primary.btn-block {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ==========================================================================
+   31. HONEYPOT (Anti-Bot)
+   ========================================================================== */
+
+.hp-field {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}

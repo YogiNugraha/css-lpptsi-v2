@@ -1,0 +1,274 @@
+/*
+ * ==========================================================================
+ *   MOBILE SPECIFIC STYLES
+ *   Overrides for screens < 768px (MD) and < 576px (SM)
+ *   Uses variables from custom-styles.css
+ * ==========================================================================
+ */
+
+@media (max-width: 767.98px) {
+  /* --- LAYOUT & SPACING --- */
+  .content-wrapper {
+    padding: 1rem 0 80px 0 !important;
+    min-height: calc(100vh - 110px) !important;
+  }
+
+  .content {
+    padding-bottom: 3rem !important;
+  }
+
+  .content-header {
+    padding: 10px 0 !important;
+  }
+
+  .container-fluid {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* --- CARDS --- */
+  .card {
+    border-radius: var(--rounded-md);
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    height: auto !important;
+  }
+
+  .card-header .card-title {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .card-header .card-tools {
+    float: none !important;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .card-header .card-tools .btn {
+    flex: 1;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  /* --- TABLES --- */
+  .table-responsive {
+    border: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table td,
+  .table th {
+    white-space: nowrap;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  /* --- DATATABLES --- */
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter,
+  .dataTables_wrapper .dataTables_info,
+  .dataTables_wrapper .dataTables_paginate {
+    text-align: left !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+    margin-left: 0 !important;
+    width: 100%;
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  .dataTables_wrapper .dataTables_info {
+    padding-top: 0 !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .pagination {
+    justify-content: flex-start !important;
+  }
+
+  /* --- BUTTONS --- */
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-xs {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  /* --- FORMS --- */
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+    height: calc(1.5em + 1rem + 2px);
+  }
+
+  .col-form-label {
+    text-align: left !important;
+    padding-bottom: 0;
+  }
+
+  /* --- MODALS --- */
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+
+  .modal-dialog.modal-lg,
+  .modal-dialog.modal-xl {
+    max-width: calc(100vw - 1rem);
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+
+  .modal-body .row .col-md-4,
+  .modal-body .row .col-md-6 {
+    margin-bottom: 0.25rem;
+  }
+
+  /* --- TIMELINE --- */
+  .timeline > div > .timeline-item {
+    margin-left: 45px;
+  }
+
+  .timeline > div > .timeline-item > .timeline-header {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .timeline > div > .timeline-item > .timeline-body {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .timeline > div > .timeline-item > .timeline-footer {
+    padding: 0.6rem 1rem;
+  }
+
+  .timeline > div > .fas,
+  .timeline > div > .far {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.75rem;
+  }
+
+  /* --- INFO BOX --- */
+  .info-box {
+    min-height: auto;
+  }
+
+  .info-box .info-box-icon {
+    width: 55px;
+    font-size: 1.4rem;
+  }
+
+  .info-box .info-box-number {
+    font-size: 1.2rem;
+  }
+
+  .info-box .info-box-text {
+    font-size: 0.75rem;
+  }
+
+  /* --- LIST GROUP --- */
+  .list-group-item {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .list-group-item .font-weight-bold {
+    font-size: 0.85rem;
+  }
+
+  /* --- SMALL BOX --- */
+  .small-box .inner {
+    padding: 1rem;
+  }
+
+  .small-box h3 {
+    font-size: 1.6rem;
+  }
+
+  .small-box .icon {
+    font-size: 3rem;
+  }
+
+  /* --- BADGES --- */
+  .badge {
+    font-size: 0.7em;
+    padding: 0.3em 0.55em;
+  }
+
+  /* --- TYPOGRAPHY --- */
+  h1,
+  .h1 {
+    font-size: 1.5rem;
+  }
+  h2,
+  .h2 {
+    font-size: 1.25rem;
+  }
+  h3,
+  .h3 {
+    font-size: 1.125rem;
+  }
+
+  /* --- UTILITIES --- */
+  .float-right {
+    float: none !important;
+  }
+
+  .btn.float-right {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
+    float: none !important;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 575.98px) {
+  .btn-block-xs {
+    display: block;
+    width: 100%;
+  }
+
+  /* Stack info-box vertically on very small screens */
+  .info-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-box .info-box-icon {
+    width: 100%;
+    border-radius: var(--rounded-lg) var(--rounded-lg) 0 0;
+    padding: 0.75rem;
+  }
+}
